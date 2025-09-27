@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import timm
-from torchvision import datasets, transforms
+from torchvision import datasets
 from torch.utils.data import DataLoader
 import torch.optim as optim
 

@@ -37,7 +37,32 @@ python classifier-train.py
 python classifier-test.py
 ```
 
-详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。
+## 三、卫星图像分割
+
+### 1、训练
+
+```shell
+# 1、激活环境
+conda activate timm
+# 2、安装matplotlib库
+pip install matplotlib==3.10.6 -i https://pypi.mirrors.ustc.edu.cn/simple
+# 3、设置Huggingface镜像
+## Windows
+set HF_ENDPOINT=https://hf-mirror.com
+## Linux
+export HF_ENDPOINT=https://hf-mirror.com
+# 4、训练
+python segment-train.py
+```
+
+### 2、测试
+
+```shell
+python segment-test.py
+```
+
+
+
+## 详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。
 
 ![](https://gitclone.com/download1/aliendao/weixin-aliendao2.jpg)
-
