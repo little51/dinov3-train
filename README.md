@@ -37,3 +37,7 @@ python classifier-train.py
 python classifier-test.py
 ```
 
+详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。
+
+![](https://gitclone.com/download1/aliendao/weixin-aliendao2.jpg)
+
