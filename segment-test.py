@@ -17,7 +17,7 @@ class DINOv3SegmentationModel(nn.Module):
         self.img_size = img_size
         self.patch_size = 16  # DINOv3的patch大小
         
-        # 加载预训练的DINOv3骨干网络
+        # 加载预训练的DINOv3主干网络
         self.backbone = timm.create_model(
             backbone_name,
             pretrained=True,
@@ -26,7 +26,7 @@ class DINOv3SegmentationModel(nn.Module):
             img_size=img_size
         )
         
-        # 冻结骨干网络所有参数
+        # 冻结主干网络所有参数
         for param in self.backbone.parameters():
             param.requires_grad = False
         
