@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import timm
 from PIL import Image
+import time
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -43,9 +44,18 @@ def classifier(model,input_tensor) :
 
 if __name__ == '__main__':
     model,data_config = load_model()
+    start_time = time.time()
     input_tensor = process_image(data_config,'test01.png')
     classifier(model,input_tensor)
+    end_time = time.time()
+    print(f"test01.png 执行时间: {end_time - start_time:.4f} 秒")
+    start_time = time.time()
     input_tensor = process_image(data_config,'test02.png')
     classifier(model,input_tensor)
+    end_time = time.time()
+    print(f"test02.png 执行时间: {end_time - start_time:.4f} 秒")
+    start_time = time.time()
     input_tensor = process_image(data_config,'test03.png')
     classifier(model,input_tensor)
+    end_time = time.time()
+    print(f"test03.png 执行时间: {end_time - start_time:.4f} 秒")
