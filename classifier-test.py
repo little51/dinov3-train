@@ -33,29 +33,22 @@ def process_image(data_config,file_path) :
     input_tensor = transform(image).unsqueeze(0).to(device)
     return input_tensor
 
-def classifier(model,input_tensor) :
+def classifier(model,input_tensor,file_path) :
+    start_time = time.time()
     with torch.no_grad():
         output = model(input_tensor)
         prob = torch.softmax(output, dim=1)
         confidence, predicted = torch.max(prob, 1)
     class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer', 
                 'dog', 'frog', 'horse', 'ship', 'truck']
-    print(f"预测: {class_names[predicted.item()]} (置信度: {confidence.item():.4f})")
+    end_time = time.time()
+    print(f"图片：{file_path} 预测: {class_names[predicted.item()]} 置信度: {confidence.item():.4f} 执行时间: {end_time - start_time:.4f} 秒")
 
 if __name__ == '__main__':
     model,data_config = load_model()
-    start_time = time.time()
     input_tensor = process_image(data_config,'test01.png')
-    classifier(model,input_tensor)
-    end_time = time.time()
-    print(f"test01.png 执行时间: {end_time - start_time:.4f} 秒")
-    start_time = time.time()
+    classifier(model,input_tensor,'test01.png')
     input_tensor = process_image(data_config,'test02.png')
-    classifier(model,input_tensor)
-    end_time = time.time()
-    print(f"test02.png 执行时间: {end_time - start_time:.4f} 秒")
-    start_time = time.time()
+    classifier(model,input_tensor,'test02.png')
     input_tensor = process_image(data_config,'test03.png')
-    classifier(model,input_tensor)
-    end_time = time.time()
-    print(f"test03.png 执行时间: {end_time - start_time:.4f} 秒")
+    classifier(model,input_tensor,'test03.png')
