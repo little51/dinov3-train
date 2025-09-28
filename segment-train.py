@@ -199,7 +199,6 @@ def train_segmentation_model(model, train_loader, val_loader, num_epochs=50):
     # 优化器 - 使用较小的学习率
     optimizer = optim.AdamW(
         [
-            {'params': model.backbone.parameters(), 'lr': 0.0001},  # 主干网络较小学习率
             {'params': model.feature_projection.parameters(), 'lr': 0.001},
             {'params': model.head.parameters(), 'lr': 0.001},    # 头正常学习率
         ],
