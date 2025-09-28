@@ -303,26 +303,27 @@ def main():
     # 创建输出目录
     os.makedirs('./data', exist_ok=True)
     
-    print("步骤 1/4: 创建DINOv3分割模型...")
+    print("步骤 1/5: 创建DINOv3分割模型...")
     model = DINOv3SegmentationModel(
         backbone_name='vit_large_patch16_dinov3.sat493m',
         num_classes=10,
         img_size=224
     )
     
-    print("步骤 2/4: 加载EuroSAT数据集...")
+    print("步骤 2/5: 加载EuroSAT数据集...")
     train_loader, val_loader, test_loader = load_segmentation_dataset(batch_size=8)
     
-    print("步骤 3/4: 训练模型...")
+    print("步骤 3/5: 训练模型...")
     trained_model, train_losses, val_mious = train_segmentation_model(
         model, train_loader, val_loader, num_epochs=5
     )
     
-    print("步骤 4/4: 评估...")
+    print("步骤 4/5: 评估模型...")
     # 最终评估
     test_miou = evaluate_segmentation(trained_model, test_loader)
     print(f'测试集 mIoU: {test_miou:.4f}')
     
+    print("步骤 5/5: 保存任务头...")
     # 保存最终模型 - 只保存任务头
     torch.save({
         'head_state_dict': trained_model.head.state_dict(),  # 只保存头
@@ -334,26 +335,6 @@ def main():
     }, 'final_dino_segmentation_head.pth')
     
     print("DINOv3语义分割模型训练完成! 任务头已保存。")
-
-# 添加模型加载函数供后续使用
-def load_trained_model(model_path='final_dino_segmentation_head.pth', backbone_name='vit_large_patch16_dinov3.sat493m', num_classes=10, img_size=224):
-    """加载训练好的模型"""
-    # 初始化模型
-    model = DINOv3SegmentationModel(
-        backbone_name=backbone_name,
-        num_classes=num_classes,
-        img_size=img_size
-    )
-    
-    # 加载训练好的任务头权重
-    checkpoint = torch.load(model_path, map_location='cpu')
-    model.head.load_state_dict(checkpoint['head_state_dict'])
-    
-    model.to(device)
-    model.eval()
-    
-    print("模型加载完成!")
-    return model
 
 if __name__ == '__main__':
     main()
