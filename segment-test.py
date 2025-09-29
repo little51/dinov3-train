@@ -4,6 +4,7 @@ import timm
 import torchvision.transforms as transforms
 from PIL import Image
 import numpy as np
+import time
 
 # 设置设备
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -172,6 +173,7 @@ def analyze_land_use(segmentation_map):
     return sorted(results, key=lambda x: x['面积占比'], reverse=True)
 
 def segment(file_path):
+    start_time = time.time()
     # 1. 加载图像
     image_tensor,_ = load_and_preprocess_image(file_path)
     # 2. 执行分割
@@ -191,11 +193,11 @@ def segment(file_path):
     
     print("-" * 50)
     print(f"{'总计':<10} {total_percentage:<10.1f}% {segmentation_map.size:<10}")
-    
+    end_time = time.time()
     # 显示主要地物类型
     if land_use_results:
         main_landuse = land_use_results[0]
-        print(f"\n 主要地物类型: {main_landuse['地物类型']} ({main_landuse['面积占比']:.1f}%)")
+        print(f"\n 主要地物类型: {main_landuse['地物类型']} ({main_landuse['面积占比']:.1f}%) 执行时间: {end_time - start_time:.4f} 秒")
     print("\n===================================\n")
 
 if __name__ == "__main__":
