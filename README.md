@@ -61,6 +61,40 @@ python segment-train.py
 python segment-test.py
 ```
 
+## 四、目标检测
+
+### 1、训练集下载
+
+```shell
+# 下载地址
+http://images.cocodataset.org/zips/train2017.zip 
+http://images.cocodataset.org/annotations/annotations_trainval2017.zip
+http://images.cocodataset.org/zips/val2017.zip 
+# 目录结构
+data/coco/
+├── train2017/          # 训练图像
+├── val2017/            # 验证图像
+└── annotations/        # 标注
+    ├── instances_train2017.json
+    └── instances_val2017.json
+```
+
+### 2、训练
+
+```shell
+# 1、激活环境
+conda activate timm
+# 2、安装pycocotools库
+pip install pycocotools==2.0.10 -i https://pypi.mirrors.ustc.edu.cn/simple
+# 3、设置Huggingface镜像
+## Windows
+set HF_ENDPOINT=https://hf-mirror.com
+## Linux
+export HF_ENDPOINT=https://hf-mirror.com
+# 4、训练
+python detection-train.py
+```
+
 
 
 ## 详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。
