@@ -95,6 +95,26 @@ export HF_ENDPOINT=https://hf-mirror.com
 python detection-train.py
 ```
 
+### 3、测试
+
+```shell
+python detection-test.py
+```
+
+## 五、自定义数据集分类训练
+
+```
+# 1、激活环境
+conda activate timm
+# 2、设置Huggingface镜像
+## Windows
+set HF_ENDPOINT=https://hf-mirror.com
+## Linux
+export HF_ENDPOINT=https://hf-mirror.com
+# 3、训练
+python mydataset-train.py
+```
+
 
 
 ## 详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。
