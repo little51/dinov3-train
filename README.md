@@ -115,6 +115,21 @@ export HF_ENDPOINT=https://hf-mirror.com
 python mydataset-train.py
 ```
 
+## 六、蒸馏训练模型
+
+```shell
+# 1、数据准备
+git clone https://github.com/lightly-ai/dataset_clothing_images.git my_data_dir
+# 删除数据目录下的.git目录
+# Linux执行以下命令，Windows上直接删除.git目录
+rm -rf my_data_dir/.git
+# 2、安装lightly-train库
+conda activate timm
+pip install lightly-train -i https://pypi.mirrors.ustc.edu.cn/simple
+# 3、蒸馏
+python lightly-train-dinov3.py
+```
+
 
 
 ## 详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。

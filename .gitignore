@@ -211,3 +211,7 @@ __marimo__/
 /best_dino_segmentation_head.pth
 /best_dinov3_segmentation_model.pth
 /dino_classifier_head.pth
+/my_data_dir
+/out
+/dinov3
+/weights
