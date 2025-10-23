@@ -128,6 +128,10 @@ conda activate timm
 pip install lightly-train -i https://pypi.mirrors.ustc.edu.cn/simple
 # 3、蒸馏
 python lightly-train-dinov3.py
+# 4、微调
+python lightly-train-finetun.py
+# 5、分类
+python lightly-train-infer.py
 ```
 
 
