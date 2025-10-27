@@ -134,6 +134,31 @@ python lightly-train-finetun.py
 python lightly-train-infer.py
 ```
 
+## 七、蒸馏模型应用
+
+### 1、环境准备
+
+```shell
+# 1、创建虚拟环境
+conda create -n lightly-train python=3.12 -y
+# 2、激活虚拟环境
+conda activate lightly-train
+# 3、安装PyTorch（Windows）
+pip install torch==2.4.1 torchvision==0.19.1 torchaudio==2.4.1 --index-url https://download.pytorch.org/whl/cu124
+# 4、验证是否安装成功
+python -c "import torch; print(torch.cuda.is_available())"
+# 5、安装依赖库
+pip install lightly-train==0.11.4 matplotlib==3.10.7 -i https://pypi.mirrors.ustc.edu.cn/simple
+```
+
+### 2、具体任务
+
+#### （1）目标检测
+
+```shell
+python lightly-train-detr.py
+```
+
 
 
 ## 详细原理、源码解析和操作步骤介绍，敬请关注作者公众号。
