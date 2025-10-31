@@ -188,6 +188,6 @@ python lightly-train-yolov8s.py
 
 ## 作者新书《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》技术交流群
 
-![交流群](https://gitclone.com/download1/aliendao/aliendao20251030.jpg)
+![交流群](https://gitclone.com/download1/aliendao/aliendao20251107.jpg)
 ![图书](https://gitclone.com/download1/llm-dev/llm-dev.png)
 ![图书](https://gitclone.com/download1/ai-agent/agent-dev1.png)
