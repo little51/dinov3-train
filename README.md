@@ -177,7 +177,23 @@ pip install lightly-train==0.11.4 ultralytics==8.3.221 -i https://pypi.mirrors.u
 ### 2、蒸馏
 
 ```shell
+# 激活虚拟环境
+conda activate lightly-train
+# 蒸馏
 python lightly-train-yolov8s.py
+```
+
+### 3、微调与推理
+
+```shell
+# 激活虚拟环境
+conda activate lightly-train
+# 查看分类头信息
+python yolov8s-dinov3-info.py
+# 微调
+yolo detect train model=out/my_experiment/exported_models/exported_last.pt data="coco8.yaml"
+# 检测
+yolo detect predict model=runs/detect/train/weights/best.pt source='test06.png'
 ```
 
 
