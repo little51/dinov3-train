@@ -159,6 +159,12 @@ pip install lightly-train==0.11.4 matplotlib==3.10.7 -i https://pypi.mirrors.ust
 python lightly-train-detr.py
 ```
 
+#### （2）语义分割
+
+```shell
+python lightly-train-segment.py
+```
+
 ## 八、DINOv3与YOLO组合
 
 ### 1、环境准备
