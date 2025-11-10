@@ -5,7 +5,7 @@ from torchvision.io import read_image
 from torchvision.utils import draw_segmentation_masks
 
 # 加载模型和预测
-image_path = "detr_test.jpg"
+image_path = "test08.jpg"
 model = lightly_train.load_model_from_checkpoint(
     "weights/lightlytrain_dinov3_eomt_vits16_cocostuff.pt"
 )
