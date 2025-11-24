@@ -208,8 +208,7 @@ yolo detect predict model=runs/detect/train/weights/best.pt source='test06.png'
 
 ![](https://gitclone.com/download1/aliendao/weixin-aliendao2.jpg)
 
-## 作者新书《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》技术交流群
+## 作者新书《大模型项目实战：多领域智能应用》和《大模型项目实战：Agent开发与应用》
 
-![交流群](https://gitclone.com/download1/aliendao/aliendao20251117.jpg)
 ![图书](https://gitclone.com/download1/llm-dev/llm-dev.png)
 ![图书](https://gitclone.com/download1/ai-agent/agent-dev1.png)
