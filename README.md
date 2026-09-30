@@ -2,7 +2,7 @@
 
 [作者新书：《视觉自监督模型DINOv3：原理、训练到部署》](https://github.com/little51/dinov3-course)
 
-![图书](https://5starsoft.com.cn/dinov3.jpg)
+![图书](https://gitclone.com/download1/aliendao/dinov3.png)
 
 
 ## 一、环境准备
